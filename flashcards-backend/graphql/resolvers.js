@@ -14,7 +14,7 @@ const resolvers = {
             return await Flashcard.create(input);
         },
         async updateFlashcard(root, { _id, input }) {
-            return await Flashcard.findByIdAndUpdate({ _id}), input, { new: true });
+            return await Flashcard.findByIdAndUpdate({ _id}, input, { new: true });
         },
         async deleteFlashcard(root, { _id }) {
             return await Flashcard.findOneAndRemove({ _id });

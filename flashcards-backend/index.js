@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import { ApolloServer } from 'apollo-server-express';
-import typeDefs from './schema';
-import resolvers from './resolvers';
+import typeDefs from './graphql/schema';
+import resolvers from './graphql/resolvers';
 
 require('dotenv').config();//to read .env file
 
