@@ -1,5 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import { ApolloServer } from 'apollo-server-express';
+import typeDefs from './schema';
+import resolvers from './resolvers';
 
 require('dotenv').config();//to read .env file
 
@@ -15,6 +18,11 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true,  useUnified
     connection.once('open', () => {
         console.log("MongoDB database connection established");
 });
+
+//Create New Apollo Server
+const server = new ApolloServer({ typeDefs, resolvers });
+
+server.applyMiddleware({ app });
 
 app.get('/', (req, res) => {
     res.send('works!');
