@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { ToastContainer } from 'react-toastify';//notifications package
+import 'react-toastify/dist/ReactTostify.css';
+import { createHttpLink, InMemoryCache, ApolloClient, ApolloProvider } from '@apollo/client';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+// Set Up Apollo Client
+
+//link tp graphql server
+const link = createHttpLink({
+  uri: 'http://localhost:3000/graphql',
+});
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+  link,
+  cache,
+});
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
+    <ToastContainer />
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
