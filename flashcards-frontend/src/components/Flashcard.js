@@ -77,6 +77,22 @@ const Flashcard = ({ flashcard, deleteFlashcard }) => {
                     </div>
                 </div>
             </header>
+
+            {/* Animation to flip the card */}
+            <ReactCardFlip isFlipped={showAnswer} flipDirection="vertical">
+                <div className="card-content m-2 has-background-warning">
+                    <div className="content">
+                        {flashcard.question}
+                        <br />
+                    </div>
+                </div>
+                <div className="card-content m-2 has-background-success has-text-white">
+                    <div className="content">
+                        {flashcard.answer}
+                        <br />
+                    </div>
+                </div>
+            </ReactCardFlip>
         </div>
     );
 };
