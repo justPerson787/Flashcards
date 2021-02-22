@@ -42,6 +42,45 @@ const EditFlashcard = ({ match, history }) => {
     return (
         <div className="container mt-3">
             <h1 className="title">Edit Flashcard</h1>
+            <div className="box mt-3">
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    updateFlashcard({
+                        variables: {
+                            _id: flashcard.getFlashcard.__id,
+                            question: question || flashcard.getFlashcard.question,
+                            answer: answer || flashcard.getFlashcard.answer,
+                        },
+                    });
+                    toast.success('Flashcard was edited successfully', {
+                        position: toast.POSITION.TOP_CENTER,
+                    });
+                }}
+            >
+                <div className="field">
+                    <label className="label" htmlFor="question">Question</label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="text"
+                            name="question"
+                            id="question"
+                            defaultValue={flashcard.getFlashcard.question}
+                            onChange={(e) => setQuestion(e.target.value)}
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <div className="control">
+                        <button className="button is-link" type="submit">
+                            Save
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
         </div>
     );
 };
