@@ -73,6 +73,21 @@ const EditFlashcard = ({ match, history }) => {
                 </div>
 
                 <div className="field">
+                    <label className="label" htmlFor="answer">Answer</label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="text"
+                            name="answer"
+                            id="answer"
+                            defaultValue={flashcard.getFlashcard.answer}
+                            onChange={(e) => setAnswer(e.target.value)}
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
                     <div className="control">
                         <button className="button is-link" type="submit">
                             Save
