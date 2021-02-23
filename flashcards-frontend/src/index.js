@@ -10,7 +10,7 @@ import App from './App';
 
 //link tp graphql server
 const link = createHttpLink({
-  uri: 'http://localhost:3000/graphql',
+  uri: 'http://localhost:4000/graphql',
 });
 const cache = new InMemoryCache();
 
@@ -22,7 +22,7 @@ const client = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
-    <ToastContainer />
+    <ToastContainer /> 
   </ApolloProvider>,
   document.getElementById('root')
 );

@@ -25,7 +25,7 @@ const EDIT_FLASHCARD = gql`
     mutation updateFlashcard($_id: ID!, $isAnswered: Boolean) {
         updateFlashcard(_id: $_id, input: { isAnswered: $isAnswered }) {
             _id
-            isanswered
+            isAnswered
         }
     }
 `;
@@ -64,14 +64,14 @@ const AllFlashcards = () => {
                     type="button"
                     onClick={() => {
                         data.allFlashcards.map((flashcard) => {
-                            if (flashcard.isAnswered) {
+                            if (flashcard.isAnswered) {                                
                                 updateFlashcard({
                                     variables: {
                                         _id: flashcard._id,
                                         isAnswered: false,
                                     },
                                 });
-                            }
+                            } 
                         });
                     }}
                 >

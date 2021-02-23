@@ -32,7 +32,7 @@ const Flashcard = ({ flashcard, deleteFlashcard }) => {
                                     </span>
                                 </button>
                                 <button className="button" type="button"
-                                    onClick={() => {
+                                    onClick={() => {                                        
                                         updateFlashcard({
                                             variables: {
                                                 _id: flashcard._id,

@@ -7,7 +7,10 @@ import resolvers from './graphql/resolvers';
 require('dotenv').config();//to read .env file
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 4000;
+/*if(process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}*/
 
 //Connect to our DB in MongoDB Atlas
 const uri = process.env.ATLAS_URI;
