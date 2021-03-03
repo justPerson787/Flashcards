@@ -17,10 +17,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start-client": "react-scripts start",
+    "build": "react-scripts build && (cd flashcards-backend && yarn install)",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "cd flashcards-backend && yarn start"
   },
   "eslintConfig": {
     "extends": [

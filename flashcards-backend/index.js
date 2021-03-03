@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import { ApolloServer } from 'apollo-server-express';
 import typeDefs from './graphql/schema';
@@ -7,6 +8,7 @@ import resolvers from './graphql/resolvers';
 require('dotenv').config();//to read .env file
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 4000;
 /*if(process.env.NODE_ENV !== "production") {
     require('dotenv').config();
@@ -38,7 +40,10 @@ const server = new ApolloServer({
       } 
 });
 
-server.applyMiddleware({ app });
+server.applyMiddleware({ 
+   // path: './flashcards-frontend',
+    app,
+ });
 
 app.listen(PORT, () => {
     console.log(`server is listening on port: ${PORT}`);

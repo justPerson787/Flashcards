@@ -47,7 +47,7 @@ const EditFlashcard = ({ match, history }) => {
                     e.preventDefault();
                     updateFlashcard({
                         variables: {
-                            _id: flashcard.getFlashcard.__id,
+                            _id: flashcard.getFlashcard._id,
                             question: question || flashcard.getFlashcard.question,
                             answer: answer || flashcard.getFlashcard.answer,
                         },
